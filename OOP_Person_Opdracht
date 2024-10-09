@@ -1,0 +1,22 @@
+from datetime import date
+
+class Persoon:
+  def __init__(self, Naam, Land, geboortedatum):
+      self.Naam = Naam
+      self.Land = Land
+      self.geboortedatum = geboortedatum
+
+
+persoon1 = Persoon('Karim', 'Frankrijk', date(1962, 7, 12))
+persoon2 = Persoon('Rik', 'Belgie', date(1985, 4, 10))
+
+def leeftijd_persoon1():
+  huidige_datum = date.today()
+  jaar = huidige_datum.year - persoon1.geboortedatum.year
+
+  if (huidige_datum.month, huidige_datum.day) < (persoon1.geboortedatum.month, persoon1.geboortedatum.day):
+      jaar -= 1
+
+  return jaar
+
+print(leeftijd_persoon1())
